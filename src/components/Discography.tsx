@@ -19,6 +19,14 @@ const releases: Release[] = [
     bandcamp: "https://pagantr.bandcamp.com/album/acolytes"
   },
   {
+    title: "Heathen Upheaval (Remaster)",
+    type: "Re-release",
+    year: 2022,
+    description: "Remaster of the critically acclaimed 1998 demo. Released via Saturnal Records.",
+    spotify: "https://open.spotify.com/album/0uWo78eCphS18kjcqBWzA1",
+    bandcamp: "https://pagantr.bandcamp.com/album/heathen-upheaval"
+  },
+  {
     title: "Rehearsal Tape '19",
     type: "Demo",
     year: 2019,
@@ -69,8 +77,8 @@ export const Discography = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {releases.map((release, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="bg-card border-border hover:border-primary/50 transition-all duration-300 group"
               >
                 <CardHeader>
