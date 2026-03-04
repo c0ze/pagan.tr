@@ -55,12 +55,24 @@ export const Links = () => {
               </h3>
               <p className="text-muted-foreground">Current label</p>
             </a>
+
+            <a
+              href="https://metalhead.club/@Pagan"
+              target="_blank"
+              rel="me noopener noreferrer"
+              className="p-8 bg-card border-2 border-border hover:border-primary transition-all duration-300 group"
+            >
+              <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
+                Mastodon
+              </h3>
+              <p className="text-muted-foreground">Follow us on the Fediverse</p>
+            </a>
           </div>
 
           <div className="pt-8 border-t border-border">
             <p className="text-muted-foreground mb-4">For bookings and inquiries</p>
-            <a 
-              href="mailto:contact@pagan.tr" 
+            <a
+              href="mailto:contact@pagan.tr"
               className="text-lg text-primary hover:text-primary/80 transition-colors font-semibold"
             >
               contact@pagan.tr
