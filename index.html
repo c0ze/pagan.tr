@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,6 +20,16 @@
     <meta name="twitter:title" content="PAGAN - Turkish Black Metal Band" />
     <meta name="twitter:description" content="Pioneering Turkish black metal from Istanbul since 1995." />
     <meta name="twitter:image" content="https://pagan.tr/images/og-image.png" />
+
+    <link rel="stylesheet" href="/src/index.css" />
+    <link rel="stylesheet" href="/src/assets/fog.css" />
+
+    <script>
+      (function() {
+        var theme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.className = theme;
+      })();
+    </script>
 
     <script type="application/ld+json">
     {
@@ -93,6 +103,6 @@
 
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/Main.res.mjs"></script>
   </body>
 </html>

@@ -1,0 +1,10 @@
+{
+  "name": "pagan-tr",
+  "sources": [{ "dir": "src", "subdirs": true }],
+  "package-specs": [{ "module": "esmodule", "in-source": true }],
+  "suffix": ".res.mjs",
+  "bs-dependencies": ["@rescript/react", "@rescript/core"],
+  "bsc-flags": ["-open RescriptCore"],
+  "jsx": { "version": 4, "mode": "automatic" },
+  "uncurried": true
+}
