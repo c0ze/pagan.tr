@@ -1,17 +1,15 @@
 # Pagan
 
-> Pagan (pagan.tr) is the photography portfolio of Arda Karaduman — street, minimal, and abstract photography shot in Tokyo and Istanbul.
+> Pagan is a pioneering Turkish black metal band from Istanbul, exploring themes of paganism, shamanism, and mysticism since 1995.
 
-## Content
+## Site
 
-- [Portfolio](https://pagan.tr/): Selected photographic works — street, minimal, abstract
-- Series shot on location in Tokyo and Istanbul
+- [Home](https://pagan.tr/): Band logo, hero, and latest updates
+- Biography: band history and lineup
+- Discography: releases with streaming links
+- Shop: merchandise
+- Media: videos and social links
 
 ## Elsewhere
 
-- [Instagram](https://instagram.com/pagan.tr): @pagan.tr
-- [Glass](https://glass.photo/pagan): Photography community profile
-
-## Contact
-
-- [Arda Karaduman](https://arda.tr/): Personal site
+- [Mastodon](https://metalhead.club/@Pagan): @Pagan@metalhead.club
