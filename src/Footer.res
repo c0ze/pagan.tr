@@ -15,6 +15,11 @@ let socialLinks = [
     rel: "noopener noreferrer",
   },
   {href: "https://metalhead.club/@Pagan", label: "Mastodon", rel: "me noopener noreferrer"},
+  {
+    href: "https://github.com/c0ze/omarchy-pagan-theme",
+    label: "Omarchy Theme",
+    rel: "noopener noreferrer",
+  },
 ]
 
 @react.component
