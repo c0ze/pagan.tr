@@ -4,7 +4,6 @@ import autoprefixer from "autoprefixer";
 
 export default defineConfig({
   base: "/",
-  assetsInclude: ["**/*.JPG"],
   server: {
     host: "::",
     port: 8080,

@@ -1,4 +1,4 @@
-@module("./assets/pagan-band-photo.JPG") external paganBandPhoto: string = "default"
+@module("./assets/pagan-band-photo.webp") external paganBandPhoto: string = "default"
 
 @react.component
 let make = () => {
@@ -70,6 +70,9 @@ let make = () => {
               <img
                 src=paganBandPhoto
                 alt="Pagan Band"
+                width="1184"
+                height="864"
+                loading=#"lazy"
                 className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-500"
               />
             </div>

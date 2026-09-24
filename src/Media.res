@@ -1,32 +1,28 @@
-@send external setAttribute: (Dom.element, string, string) => unit = "setAttribute"
+// JSX has no `allow` prop, and the attribute only applies if set before the
+// iframe loads, so create the element directly.
+type iframeProps = {
+  src: string,
+  title: string,
+  allow: string,
+  allowFullScreen: bool,
+  loading: string,
+  className: string,
+}
+
+@module("react")
+external createIframe: (@as("iframe") _, iframeProps) => React.element = "createElement"
 
 module VideoEmbed = {
   @react.component
-  let make = () => {
-    let ref = React.useRef(Nullable.null)
-
-    React.useEffect0(() => {
-      switch ref.current->Nullable.toOption {
-      | Some(el) =>
-        el->setAttribute(
-          "allow",
-          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
-        )
-      | None => ()
-      }
-      None
+  let make = () =>
+    createIframe({
+      src: "https://www.youtube.com/embed/REBYO1Aoaos",
+      title: "Pagan - Video",
+      allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+      allowFullScreen: true,
+      loading: "lazy",
+      className: "w-full h-full",
     })
-
-    <iframe
-      ref={ReactDOM.Ref.domRef(ref)}
-      width="100%"
-      height="100%"
-      src="https://www.youtube.com/embed/REBYO1Aoaos"
-      title="Pagan - Video"
-      allowFullScreen={true}
-      className="w-full h-full"
-    />
-  }
 }
 
 module YouTubeIcon = {

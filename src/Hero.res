@@ -1,4 +1,4 @@
-@module("./assets/pagan-logo.jpg") external paganLogo: string = "default"
+@module("./assets/pagan-logo.webp") external paganLogo: string = "default"
 
 @react.component
 let make = () => {
@@ -40,6 +40,8 @@ let make = () => {
           <img
             src=paganLogo
             alt="Pagan Logo"
+            width="1344"
+            height="768"
             className="w-full max-w-2xl h-auto dark:invert-0 invert"
           />
         </div>
