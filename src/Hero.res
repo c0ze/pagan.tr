@@ -58,7 +58,13 @@ let make = () => {
           </div>
         </div>
         <nav className="flex flex-wrap justify-center gap-6 pt-8">
-          {[("biography", "Biography"), ("discography", "Discography"), ("media", "Media"), ("links", "Links")]
+          {[
+            ("biography", "Biography"),
+            ("discography", "Discography"),
+            ("shop", "Shop"),
+            ("media", "Media"),
+            ("links", "Links"),
+          ]
           ->Array.map(((id, label)) =>
             <a
               key=id

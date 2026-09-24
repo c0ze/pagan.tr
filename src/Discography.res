@@ -172,7 +172,7 @@ let make = () => {
           {React.string("DISCOGRAPHY")}
         </h2>
         <p className="text-center text-muted-foreground mb-12">
-          {React.string("Nearly three decades of darkness")}
+          {React.string("Three decades of darkness")}
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {releases
