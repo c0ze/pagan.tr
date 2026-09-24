@@ -28,6 +28,11 @@ Every push to `main` builds and publishes to GitHub Pages through
 `.github/workflows/deploy.yml`. The custom domain (`pagan.tr`) is set in the
 repository's Pages settings; Actions deployments ignore the `CNAME` file.
 
+Cloudflare sits in front of Pages. When the repository has a
+`CLOUDFLARE_API_TOKEN` secret (Zone > Cache Purge on pagan.tr) and a
+`CLOUDFLARE_ZONE_ID` variable, the workflow purges Cloudflare's cache after
+each deploy; without them the step is skipped.
+
 ## Layout
 
 - `src/*.res`: one component per page section
