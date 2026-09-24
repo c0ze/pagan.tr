@@ -1,10 +1,11 @@
 /* ---------- Fog Animation ---------- */
+/* Layers are two images wide and slide by one image with transform, which the
+   compositor can animate without relaying out the page every frame. */
 .fogwrapper {
   height: 100%;
   position: absolute;
   top: 0;
   width: 100%;
-  -webkit-filter: blur(1px) grayscale(0.2) saturate(1.2) sepia(0.2);
   filter: blur(1px) grayscale(0.2) saturate(1.2) sepia(0.2);
   overflow: hidden;
 }
@@ -13,6 +14,7 @@
   height: 100%;
   position: absolute;
   width: 200%;
+  will-change: transform, opacity;
 }
 
 #foglayer_01 .image01, #foglayer_01 .image02,
@@ -24,14 +26,10 @@
 }
 
 #foglayer_01 {
-  -webkit-animation: foglayer_01_opacity 10s linear infinite, foglayer_moveme 15s linear infinite;
-  -moz-animation: foglayer_01_opacity 10s linear infinite, foglayer_moveme 15s linear infinite;
   animation: foglayer_01_opacity 10s linear infinite, foglayer_moveme 15s linear infinite;
 }
 
 #foglayer_02, #foglayer_03 {
-  -webkit-animation: foglayer_02_opacity 21s linear infinite, foglayer_moveme 13s linear infinite;
-  -moz-animation: foglayer_02_opacity 21s linear infinite, foglayer_moveme 13s linear infinite;
   animation: foglayer_02_opacity 21s linear infinite, foglayer_moveme 13s linear infinite;
 }
 
@@ -75,15 +73,15 @@
 
 /* ---------- Keyframe moveMe ---------- */
 @keyframes foglayer_moveme {
-  0% { left: 0; }
-  100% { left: -100%; }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
+/* On phones each image spans two screens so the fog isn't over-zoomed; the
+   layer doubles too so the loop stays seamless. */
 @media only screen and (min-width: 280px) and (max-width: 767px) {
-  #foglayer_01 .image01, #foglayer_01 .image02,
-  #foglayer_02 .image01, #foglayer_02 .image02,
-  #foglayer_03 .image01, #foglayer_03 .image02 {
-    width: 100%;
+  #foglayer_01, #foglayer_02, #foglayer_03 {
+    width: 400%;
   }
 }
 
@@ -93,7 +91,6 @@
   position: absolute;
   top: 0;
   width: 100%;
-  -webkit-filter: blur(1px);
   filter: blur(1px);
   overflow: hidden;
 }
@@ -102,6 +99,7 @@
   height: 100%;
   position: absolute;
   width: 200%;
+  will-change: transform, opacity;
 }
 
 #mistlayer_01 .image01, #mistlayer_01 .image02,
@@ -112,15 +110,11 @@
 }
 
 #mistlayer_01 {
-  -webkit-animation: mistlayer_01_opacity 12s linear infinite, mistlayer_moveme 20s linear infinite;
-  -moz-animation: mistlayer_01_opacity 12s linear infinite, mistlayer_moveme 20s linear infinite;
-  animation: mistlayer_01_opacity 12s linear infinite, mistlayer_moveme 20s linear infinite;
+  animation: mistlayer_01_opacity 12s linear infinite, foglayer_moveme 20s linear infinite;
 }
 
 #mistlayer_02 {
-  -webkit-animation: mistlayer_02_opacity 18s linear infinite, mistlayer_moveme 25s linear infinite;
-  -moz-animation: mistlayer_02_opacity 18s linear infinite, mistlayer_moveme 25s linear infinite;
-  animation: mistlayer_02_opacity 18s linear infinite, mistlayer_moveme 25s linear infinite;
+  animation: mistlayer_02_opacity 18s linear infinite, foglayer_moveme 25s linear infinite;
 }
 
 /* ---------- Light Mist Images (inverted fog) ---------- */
@@ -151,15 +145,21 @@
   100% { opacity: .5; }
 }
 
-/* ---------- Keyframe Mist moveMe ---------- */
-@keyframes mistlayer_moveme {
-  0% { left: 0; }
-  100% { left: -100%; }
+@media only screen and (min-width: 280px) and (max-width: 767px) {
+  #mistlayer_01, #mistlayer_02 {
+    width: 400%;
+  }
 }
 
-@media only screen and (min-width: 280px) and (max-width: 767px) {
-  #mistlayer_01 .image01, #mistlayer_01 .image02,
-  #mistlayer_02 .image01, #mistlayer_02 .image02 {
-    width: 100%;
+/* ---------- Reduced motion: keep the fog, stop it drifting ---------- */
+@media (prefers-reduced-motion: reduce) {
+  #foglayer_01, #foglayer_02, #foglayer_03 {
+    animation: none;
+    opacity: .3;
+  }
+
+  #mistlayer_01, #mistlayer_02 {
+    animation: none;
+    opacity: .6;
   }
 }
