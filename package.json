@@ -8,7 +8,7 @@
     "res:clean": "rescript clean",
     "res:dev": "rescript watch",
     "dev": "rescript build && vite --config config/vite.config.js",
-    "build": "rescript build && vite build --config config/vite.config.js && node scripts/generate-sitemap.js",
+    "build": "rescript build && vite build --config config/vite.config.js && node scripts/prerender.js && node scripts/generate-sitemap.js",
     "preview": "vite preview --config config/vite.config.js"
   },
   "dependencies": {

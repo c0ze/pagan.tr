@@ -16,7 +16,8 @@ Official website for Pagan, a Turkish black metal band.
 config/
 └── vite.config.js        # Vite config (Tailwind 4 plugin)
 src/
-├── Main.res              # Entry point (root render; CSS is linked from index.html)
+├── Main.res              # Entry point: hydrates the prerendered HTML (plain render on the dev server)
+├── Server.res            # Build-time entry: renderToString(<App />) for scripts/prerender.js
 ├── App.res               # Root component
 ├── Hero.res              # Band logo, tagline, fog effect
 ├── Biography.res         # Band history and lineup
@@ -34,6 +35,7 @@ src/
     ├── pagan-band-photo.webp
     └── PAGAN-old.logo.png  # Legacy logo master, not shipped
 scripts/
+├── prerender.js          # Post-build: renders Server.res into dist/index.html
 └── generate-sitemap.js   # Post-build sitemap generator
 rescript.json             # ReScript compiler config
 ```
@@ -69,7 +71,7 @@ npm run res:build  # Compile ReScript to JS
 npm run res:dev    # Watch mode for ReScript (`rescript watch`; run in separate terminal)
 npm run res:clean  # Clean ReScript build artifacts
 npm run dev        # Build ReScript + start Vite dev server
-npm run build      # Full production build (ReScript + Vite + sitemap)
+npm run build      # Full production build (ReScript + Vite + prerender + sitemap)
 npm run preview    # Preview production build
 ```
 
@@ -83,6 +85,7 @@ Or simply `npm run dev` for a one-shot build + dev server.
 ## Notes
 
 - Single-page application with semantic sections (no router needed)
+- Prerendered: the built index.html contains the full page markup and React hydrates it. Components must render the same on the server as on the client's first render: never read `document`, `window` or `localStorage` during render (read them in an effect, as ThemeToggle does), and anything time-dependent needs a build-time value first (Footer's year uses the `__BUILD_YEAR__` define). React 19 doesn't repair mismatched text or attributes
 - ReScript compiles to `.res.mjs` files in-source (gitignored)
 - SEO optimized with JSON-LD structured data (MusicGroup schema)
 - Mobile responsive design

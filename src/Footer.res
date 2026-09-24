@@ -1,4 +1,7 @@
-let currentYear: string = %raw(`String(new Date().getFullYear())`)
+// The prerendered HTML carries the build year (Vite define, identical in both
+// builds, so hydration matches); after mount the visitor's clock takes over.
+let buildYear: string = %raw(`__BUILD_YEAR__`)
+let currentYear: unit => string = %raw(`() => String(new Date().getFullYear())`)
 
 type footerLink = {
   href: string,
@@ -24,6 +27,12 @@ let socialLinks = [
 
 @react.component
 let make = () => {
+  let (year, setYear) = React.useState(() => buildYear)
+  React.useEffect0(() => {
+    setYear(_ => currentYear())
+    None
+  })
+
   <footer className="py-12 bg-background border-t border-border">
     <div className="mx-auto w-full px-4">
       <div className="max-w-6xl mx-auto text-center space-y-6">
@@ -60,7 +69,7 @@ let make = () => {
           <p> {React.string(`Istanbul, T\u00FCrkiye \u2022 Est. 1995`)} </p>
         </div>
         <div className="text-xs text-muted-foreground">
-          {React.string(`\u00A9 ` ++ currentYear ++ " Pagan. All rights reserved.")}
+          {React.string(`\u00A9 ` ++ year ++ " Pagan. All rights reserved.")}
         </div>
       </div>
     </div>

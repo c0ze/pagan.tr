@@ -40,7 +40,14 @@ module SkullIcon = {
 
 @react.component
 let make = () => {
-  let (isDark, setIsDark) = React.useState(() => getIsDark())
+  // Start as the prerendered HTML did (dark) so hydration matches, then read
+  // the real theme. The icon's rotation follows the html class via CSS, so
+  // light-theme visitors don't see it turn on load.
+  let (isDark, setIsDark) = React.useState(() => true)
+  React.useEffect0(() => {
+    setIsDark(_ => getIsDark())
+    None
+  })
 
   let toggleTheme = _ => {
     let newIsDark = !isDark
@@ -52,7 +59,7 @@ let make = () => {
     "flex items-center justify-center w-10 h-10 rounded-full border transition-all duration-300 bg-secondary border-border text-foreground hover:bg-primary/20 hover:border-primary/50 hover:text-primary"
 
   let iconClass =
-    "w-5 h-5 transition-transform duration-300 " ++ (isDark ? "rotate-0" : "rotate-180")
+    "w-5 h-5 transition-transform duration-300 rotate-180 dark:rotate-0"
 
   <button
     onClick=toggleTheme

@@ -18,7 +18,7 @@ npm run res:dev   # optional: recompile .res files on save in another terminal
 ## Build
 
 ```sh
-npm run build     # ReScript -> Vite -> dist/ (+ sitemap.xml)
+npm run build     # ReScript -> Vite -> prerender into dist/index.html -> sitemap.xml
 npm run preview   # serve dist/ locally
 ```
 
