@@ -6,7 +6,7 @@ Official website for Pagan, a Turkish black metal band.
 
 - **Language**: ReScript 11
 - **UI**: @rescript/react (React 18 bindings)
-- **Build Tool**: Vite 5
+- **Build Tool**: Vite 8 (Node 20.19+; CI uses Node 24)
 - **Styling**: Tailwind CSS 3.4 + CSS custom properties (HSL)
 - **Deployment**: GitHub Pages (pagan.tr)
 
@@ -17,7 +17,7 @@ config/
 ├── vite.config.js        # Vite config (with inline PostCSS)
 └── tailwind.config.js    # Tailwind CSS config
 src/
-├── Main.res              # Entry point (CSS imports, root render)
+├── Main.res              # Entry point (root render; CSS is linked from index.html)
 ├── App.res               # Root component
 ├── Hero.res              # Band logo, tagline, fog effect
 ├── Biography.res         # Band history and lineup
@@ -30,9 +30,10 @@ src/
 ├── index.css             # Design system (CSS variables, Tailwind)
 └── assets/
     ├── fog.css           # Atmospheric fog/mist animation
-    ├── fog1.png, fog2.png
-    ├── pagan-logo.jpg
-    └── pagan-band-photo.JPG
+    ├── fog1.webp, fog2.webp
+    ├── pagan-logo.webp   # Hero logo (LCP image, preloaded from index.html)
+    ├── pagan-band-photo.webp
+    └── PAGAN-old.logo.png  # Legacy logo master, not shipped
 scripts/
 └── generate-sitemap.js   # Post-build sitemap generator
 rescript.json             # ReScript compiler config
@@ -86,5 +87,8 @@ Or simply `npm run dev` for a one-shot build + dev server.
 - ReScript compiles to `.res.mjs` files in-source (gitignored)
 - SEO optimized with JSON-LD structured data (MusicGroup schema)
 - Mobile responsive design
-- Atmospheric fog CSS animation layer
+- Atmospheric fog CSS animation layer (transform-based; static under prefers-reduced-motion)
+- Images are WebP. Give every <img> intrinsic width/height; lazy-load anything below the fold
+- Band facts live in three places: JSON-LD in index.html, public/llms.txt, and the .res components. Keep them in sync
+- public/images/og-image.png is the 1200x630 share card referenced by og:image, twitter:image and JSON-LD
 - No shadcn/ui or component library - plain HTML elements with Tailwind

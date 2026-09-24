@@ -1,73 +1,43 @@
-# Welcome to your Lovable project
+# pagan.tr
 
-## Project info
+Official website of Pagan, Turkish black metal from Istanbul since 1995.
+Live at <https://pagan.tr>.
 
-**URL**: https://lovable.dev/projects/a27833b9-0914-4373-a712-58ab47cdd38b
+A single page built with ReScript, React, Vite and Tailwind CSS.
 
-## How can I edit this code?
+## Develop
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/a27833b9-0914-4373-a712-58ab47cdd38b) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Requires Node.js 20.19+ (CI uses 24).
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm ci
+npm run dev       # compile ReScript, start Vite on :8080
+npm run res:dev   # optional: recompile .res files on save in another terminal
 ```
 
-**Edit a file directly in GitHub**
+## Build
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```sh
+npm run build     # ReScript -> Vite -> dist/ (+ sitemap.xml)
+npm run preview   # serve dist/ locally
+```
 
-**Use GitHub Codespaces**
+## Deploy
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Every push to `main` builds and publishes to GitHub Pages through
+`.github/workflows/deploy.yml`. `CNAME` points Pages at `pagan.tr`.
 
-## What technologies are used for this project?
+## Layout
 
-This project is built with:
+- `src/*.res`: one component per page section
+- `src/assets/`: logo, band photo and fog layers (WebP), `fog.css`
+- `public/`: copied as-is (favicons, share image, `robots.txt`, `llms.txt`)
+- `index.html`: head meta, JSON-LD band data, theme bootstrap script
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Band facts (releases, links, lineup) appear in `index.html` (JSON-LD),
+`public/llms.txt` and the `.res` components. Update all three together.
 
-## How can I deploy this project?
+## The shop
 
-Simply open [Lovable](https://lovable.dev/projects/a27833b9-0914-4373-a712-58ab47cdd38b) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+The Shop section points to `ssh shop.pagan.tr`, a separate project in
+[`c0ze/shop.pagan.tr`](https://github.com/c0ze/shop.pagan.tr).
