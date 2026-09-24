@@ -36,65 +36,106 @@
       "@context": "https://schema.org",
       "@type": "MusicGroup",
       "name": "Pagan",
-      "url": "https://pagan.tr",
+      "url": "https://pagan.tr/",
       "image": "https://pagan.tr/images/og-image.png",
-      "genre": ["Black Metal", "Turkish Black Metal"],
+      "genre": [
+        "Black Metal",
+        "Turkish Black Metal"
+      ],
       "foundingDate": "1995",
       "foundingLocation": {
         "@type": "Place",
-        "name": "Istanbul, Turkey"
+        "name": "Istanbul, Türkiye"
       },
       "description": "Pioneering Turkish black metal band from Istanbul. Exploring themes of paganism, shamanism, and mysticism since 1995.",
+      "email": "contact@pagan.tr",
       "sameAs": [
         "https://www.metal-archives.com/bands/Pagan/4260",
-        "https://open.spotify.com/artist/4MoLQW8VHxjNk2vPxkpLqF",
+        "https://open.spotify.com/artist/0F3XCY66bjiKz0xPGzp8ZN",
         "https://pagantr.bandcamp.com",
+        "https://www.youtube.com/@pagan-tr",
+        "https://www.facebook.com/pagan.tr/",
         "https://www.instagram.com/pagantr",
-        "https://www.youtube.com/@pagantr",
         "https://metalhead.club/@Pagan"
       ],
       "member": [
-        {"@type": "Person", "name": "Talciron", "roleName": "Guitars, Vocals"},
-        {"@type": "Person", "name": "Noctivagus", "roleName": "Guitars, Vocals"},
-        {"@type": "Person", "name": "War", "roleName": "Drums"},
-        {"@type": "Person", "name": "Anker", "roleName": "Bass"}
+        {
+          "@type": "OrganizationRole",
+          "member": {
+            "@type": "Person",
+            "name": "Talciron"
+          },
+          "roleName": "Guitars, Vocals"
+        },
+        {
+          "@type": "OrganizationRole",
+          "member": {
+            "@type": "Person",
+            "name": "Noctivagus"
+          },
+          "roleName": "Guitars, Vocals"
+        },
+        {
+          "@type": "OrganizationRole",
+          "member": {
+            "@type": "Person",
+            "name": "War"
+          },
+          "roleName": "Drums"
+        },
+        {
+          "@type": "OrganizationRole",
+          "member": {
+            "@type": "Person",
+            "name": "Anker"
+          },
+          "roleName": "Bass"
+        }
       ],
       "album": [
         {
           "@type": "MusicAlbum",
           "name": "Acolytes",
-          "albumProductionType": "EP",
-          "datePublished": "2024"
-        },
-        {
-          "@type": "MusicAlbum",
-          "name": "Rehearsal Tape '19",
-          "albumProductionType": "Demo",
-          "datePublished": "2019"
+          "datePublished": "2024",
+          "albumProductionType": "https://schema.org/StudioAlbum",
+          "albumReleaseType": "https://schema.org/EPRelease"
         },
         {
           "@type": "MusicAlbum",
           "name": "Heathen Upheaval (Remaster)",
-          "albumProductionType": "Re-release",
-          "datePublished": "2022"
+          "datePublished": "2022",
+          "albumProductionType": "https://schema.org/DemoAlbum"
+        },
+        {
+          "@type": "MusicAlbum",
+          "name": "Rehearsal Tape '19",
+          "datePublished": "2019",
+          "albumProductionType": "https://schema.org/DemoAlbum"
         },
         {
           "@type": "MusicAlbum",
           "name": "Oz : In Transcendence",
-          "albumProductionType": "Studio album",
-          "datePublished": "2007"
+          "datePublished": "2007",
+          "albumProductionType": "https://schema.org/StudioAlbum",
+          "albumReleaseType": "https://schema.org/AlbumRelease"
         },
         {
           "@type": "MusicAlbum",
           "name": "Heathen Upheaval",
-          "albumProductionType": "Demo",
-          "datePublished": "1998"
+          "datePublished": "1998",
+          "albumProductionType": "https://schema.org/DemoAlbum"
+        },
+        {
+          "@type": "MusicAlbum",
+          "name": "Rehearsal Tape '96",
+          "datePublished": "1996",
+          "albumProductionType": "https://schema.org/DemoAlbum"
         },
         {
           "@type": "MusicAlbum",
           "name": "In Hoc Signo Vinces",
-          "albumProductionType": "Demo",
-          "datePublished": "1995"
+          "datePublished": "1995",
+          "albumProductionType": "https://schema.org/DemoAlbum"
         }
       ]
     }
