@@ -7,7 +7,7 @@ A single page built with ReScript, React, Vite and Tailwind CSS.
 
 ## Develop
 
-Requires Node.js 20.19+ (CI uses 24).
+Requires Node.js `^20.19.0 || >=22.12.0` (Vite 8); CI uses 24.
 
 ```sh
 npm ci
@@ -25,7 +25,8 @@ npm run preview   # serve dist/ locally
 ## Deploy
 
 Every push to `main` builds and publishes to GitHub Pages through
-`.github/workflows/deploy.yml`. `CNAME` points Pages at `pagan.tr`.
+`.github/workflows/deploy.yml`. The custom domain (`pagan.tr`) is set in the
+repository's Pages settings; Actions deployments ignore the `CNAME` file.
 
 ## Layout
 

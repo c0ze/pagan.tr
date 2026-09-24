@@ -6,7 +6,7 @@ Official website for Pagan, a Turkish black metal band.
 
 - **Language**: ReScript 11
 - **UI**: @rescript/react (React 18 bindings)
-- **Build Tool**: Vite 8 (Node 20.19+; CI uses Node 24)
+- **Build Tool**: Vite 8 (Node `^20.19.0 || >=22.12.0`; CI uses Node 24)
 - **Styling**: Tailwind CSS 3.4 + CSS custom properties (HSL)
 - **Deployment**: GitHub Pages (pagan.tr)
 
