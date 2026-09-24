@@ -85,7 +85,7 @@ Or simply `npm run dev` for a one-shot build + dev server.
 ## Notes
 
 - Single-page application with semantic sections (no router needed)
-- Prerendered: the built index.html contains the full page markup and React hydrates it. Components must render the same on the server as on the client's first render: never read `document`, `window` or `localStorage` during render (read them in an effect, as ThemeToggle does), and anything time-dependent needs a build-time value first (Footer's year uses the `__BUILD_YEAR__` define). React 19 doesn't repair mismatched text or attributes
+- Prerendered: the built index.html contains the full page markup and React hydrates it. Components must render the same on the server as on the client's first render: never read `document`, `window` or `localStorage` during render (read them in an effect, as ThemeToggle does), and anything time-dependent needs a build-time value first (Footer's year uses the `__BUILD_YEAR__` define). A text mismatch makes React 19 discard the markup and re-render the whole page, and a mismatched attribute is silently left as the server wrote it
 - ReScript compiles to `.res.mjs` files in-source (gitignored)
 - SEO optimized with JSON-LD structured data (MusicGroup schema)
 - Mobile responsive design

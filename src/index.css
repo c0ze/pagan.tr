@@ -27,6 +27,8 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
+  /* Keep Tailwind 3's green for the shop's terminal text (v4's is oklch). */
+  --color-green-500: #22c55e;
 }
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here.

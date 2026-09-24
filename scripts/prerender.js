@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
+import { fileURLToPath, pathToFileURL } from "url";
 import { build } from "vite";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -14,7 +14,7 @@ await build({
   configFile: path.join(root, "config", "vite.config.js"),
   logLevel: "warn",
   build: {
-    ssr: "src/Server.res.mjs",
+    ssr: path.join(root, "src", "Server.res.mjs"),
     outDir: ssrDir,
     emptyOutDir: true,
     rollupOptions: { output: { entryFileNames: "server.mjs" } },
@@ -22,12 +22,14 @@ await build({
 });
 
 try {
-  const { render } = await import(path.join(ssrDir, "server.mjs"));
+  const { render } = await import(pathToFileURL(path.join(ssrDir, "server.mjs")).href);
   const html = fs.readFileSync(indexFile, "utf8");
   if (!html.includes(marker)) {
     throw new Error(`${marker} not found in dist/index.html`);
   }
-  fs.writeFileSync(indexFile, html.replace(marker, `<div id="root">${render()}</div>`));
+  // A replacer function, so "$&"-style sequences in the markup stay literal.
+  const markup = render();
+  fs.writeFileSync(indexFile, html.replace(marker, () => `<div id="root">${markup}</div>`));
   console.log("Prerendered dist/index.html");
 } finally {
   fs.rmSync(ssrDir, { recursive: true, force: true });

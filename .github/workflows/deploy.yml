@@ -40,14 +40,17 @@ jobs:
     env:
       # Optional. Set the secret (a token with Zone > Cache Purge on pagan.tr)
       # and the CLOUDFLARE_ZONE_ID variable to purge Cloudflare after deploys.
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
+      # Only this flag is job-wide; the token is passed to the purge step alone.
+      PURGE_CLOUDFLARE: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && vars.CLOUDFLARE_ZONE_ID != '' }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
       - name: Purge Cloudflare cache
-        if: env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ZONE_ID != ''
+        if: env.PURGE_CLOUDFLARE == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
         run: |
           curl -fsS -X POST \
             "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/purge_cache" \
