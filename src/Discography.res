@@ -116,7 +116,7 @@ module ReleaseCard = {
       <div className="p-6 pb-3">
         <div className="flex items-start justify-between mb-2">
           <span
-            className="text-4xl font-bold text-primary/30 group-hover:text-primary/50 transition-colors">
+            className="text-4xl font-bold text-primary/60 group-hover:text-primary/80 transition-colors">
             {React.string(Int.toString(release.year))}
           </span>
           <span

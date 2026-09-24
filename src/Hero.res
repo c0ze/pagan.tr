@@ -36,15 +36,15 @@ let make = () => {
     />
     <div className="container mx-auto px-4 py-20 relative z-10">
       <div className="max-w-4xl mx-auto text-center space-y-12">
-        <div className="flex justify-center">
+        <h1 className="flex justify-center">
           <img
             src=paganLogo
-            alt="Pagan Logo"
+            alt="Pagan"
             width="1344"
             height="768"
             className="w-full max-w-2xl h-auto dark:invert-0 invert"
           />
-        </div>
+        </h1>
         <div className="space-y-4">
           <p
             className="text-xl md:text-2xl text-muted-foreground uppercase tracking-[0.3em] font-light">

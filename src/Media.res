@@ -17,7 +17,7 @@ module VideoEmbed = {
   let make = () =>
     createIframe({
       src: "https://www.youtube.com/embed/REBYO1Aoaos",
-      title: "Pagan - Video",
+      title: "Pagan - Elenyr | Laneth Bir Gece III",
       allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
       allowFullScreen: true,
       loading: "lazy",

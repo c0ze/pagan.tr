@@ -59,7 +59,7 @@ let make = () => {
           </p>
           <p> {React.string(`Istanbul, T\u00FCrkiye \u2022 Est. 1995`)} </p>
         </div>
-        <div className="text-xs text-muted-foreground/60">
+        <div className="text-xs text-muted-foreground">
           {React.string(`\u00A9 ` ++ currentYear ++ " Pagan. All rights reserved.")}
         </div>
       </div>
