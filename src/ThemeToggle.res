@@ -6,15 +6,11 @@ let getIsDark: unit => bool = %raw(`
 
 let setThemeClass: bool => unit = %raw(`
   function(isDark) {
-    if (isDark) {
-      document.documentElement.classList.remove("light");
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      document.documentElement.classList.add("light");
-      localStorage.setItem("theme", "light");
-    }
+    var theme = isDark ? "dark" : "light";
+    document.documentElement.className = theme;
+    try {
+      localStorage.setItem("theme", theme);
+    } catch (e) {}
   }
 `)
 
