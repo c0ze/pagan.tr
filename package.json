@@ -6,22 +6,21 @@
   "scripts": {
     "res:build": "rescript build",
     "res:clean": "rescript clean",
-    "res:dev": "rescript build -w",
+    "res:dev": "rescript watch",
     "dev": "rescript build && vite --config config/vite.config.js",
     "build": "rescript build && vite build --config config/vite.config.js && node scripts/generate-sitemap.js",
     "preview": "vite preview --config config/vite.config.js"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
   },
   "devDependencies": {
-    "@rescript/core": "^1.6.0",
-    "@rescript/react": "^0.13.0",
-    "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.6",
-    "rescript": "^11.1.0",
-    "tailwindcss": "^3.4.17",
+    "@rescript/react": "^0.15.0",
+    "@rescript/runtime": "^12.3.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "rescript": "^12.3.1",
+    "tailwindcss": "^4.3.3",
     "vite": "^8.3.1"
   }
 }

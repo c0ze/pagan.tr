@@ -10,7 +10,7 @@ dist-ssr
 
 # ReScript
 *.res.mjs
-lib/bs/
+/lib/
 .bsb.lock
 
 # Editor directories and files

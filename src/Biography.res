@@ -3,7 +3,7 @@
 @react.component
 let make = () => {
   <section id="biography" className="py-20 bg-background relative">
-    <div className="container mx-auto px-4">
+    <div className="mx-auto w-full px-4">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-shadow-glow">
           {React.string("BIOGRAPHY")}

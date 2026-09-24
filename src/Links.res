@@ -41,7 +41,7 @@ let links = [
 @react.component
 let make = () => {
   <section id="links" className="py-20 bg-card/50 relative">
-    <div className="container mx-auto px-4">
+    <div className="mx-auto w-full px-4">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-shadow-glow">
           {React.string("LINKS")}

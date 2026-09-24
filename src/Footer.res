@@ -25,7 +25,7 @@ let socialLinks = [
 @react.component
 let make = () => {
   <footer className="py-12 bg-background border-t border-border">
-    <div className="container mx-auto px-4">
+    <div className="mx-auto w-full px-4">
       <div className="max-w-6xl mx-auto text-center space-y-6">
         <div
           className="flex flex-col md:flex-row items-center justify-center gap-6 text-sm text-muted-foreground">

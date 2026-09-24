@@ -3,7 +3,7 @@
 Official website of Pagan, Turkish black metal from Istanbul since 1995.
 Live at <https://pagan.tr>.
 
-A single page built with ReScript, React, Vite and Tailwind CSS.
+A single page built with ReScript 12, React 19, Vite 8 and Tailwind CSS 4.
 
 ## Develop
 
